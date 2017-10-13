@@ -188,7 +188,6 @@ function serializeObject(){
 
 function validate() {
     /* Validates that the form inputs are sensible. If form is invalid, alert is displayed describing why. */
-    return true;
     var valueSelection = $("input[name='value']:checked").val();
     var isNull = valueSelection == '__NA__';
     var checkboxVals = [];
@@ -232,7 +231,7 @@ $(document).ready(function() {
     assignmentId = urlVars['assignmentId'];
     turkSubmitTo = urlVars['turkSubmitTo'];
 
-    $('#task-form').attr('action', turkSubmitTo + 'mturk/externalSubmit');
+    $('#task-form').attr('action', turkSubmitTo + '/mturk/externalSubmit');
 
     var questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
     var getJSON =$.getJSON(questionFile);
