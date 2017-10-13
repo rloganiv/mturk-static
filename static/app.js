@@ -7,7 +7,7 @@ var imageId = 0;
 var answers = {};
 
 
-// Utility functions 
+// Utility functions
 
 function getUrlVars() {
     /* Returns the URL variables */
@@ -42,7 +42,7 @@ function displayTitle() {
 
 function displayImage() {
     /* Dsiplays the active image for the active question. */
-    var image_src = 'img/' + questions[questionId].images[imageId];
+    var image_src = 'https://s3-us-west-2.amazonaws.com/mumie-eval/img/' + questions[questionId].images[imageId];
     $("#image").replaceWith($("<img>", {id:"image", src: image_src}));
 }
 
@@ -199,7 +199,7 @@ function validate() {
 $(document).ready(function() {
     var urlVars = getUrlVars();
     assignmentId = urlVars['assignmentId'];
-    var questionFile = 'json/' + urlVars['questionFile'];
+    var questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
     var getJSON =$.getJSON(questionFile);
     getJSON.done(function( data ) {
         questions = data;
