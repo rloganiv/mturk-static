@@ -1,6 +1,7 @@
 // Global variables
 
 var assignmentId;
+var questionFile;
 var questions;
 var questionId = 0;
 var imageId = 0;
@@ -232,7 +233,7 @@ $(document).ready(function() {
 
     $('#task-form').attr('action', turkSubmitTo + '/mturk/externalSubmit');
 
-    var questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
+    questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
     var getJSON =$.getJSON(questionFile);
     getJSON.done(function( data ) {
         questions = data;
