@@ -150,6 +150,7 @@ function nextQuestion() {
     if (good_answer) {
         answers[questionId] = $('#task-form').serializeArray();
         questionId += 1;
+        imageId = 0;
     }
     if (questionId == questions.length) {
         $('#task-form').submit(function() {
