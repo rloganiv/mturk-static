@@ -172,7 +172,6 @@ function nextQuestion() {
 
 function validate() {
     /* Validates that the form inputs are sensible. If form is invalid, alert is displayed describing why. */
-    return true;
     var valueSelection = $("input[name='value']:checked").val();
     var isNull = valueSelection == '__NA__';
     var checkboxVals = [];
