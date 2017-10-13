@@ -228,7 +228,7 @@ function prepare_for_submission() {
 $(document).ready(function() {
     var urlVars = getUrlVars();
     assignmentId = urlVars['assignmentId'];
-    turkSubmitTo = urlVars['turkSubmitTo'];
+    turkSubmitTo = decodeURIComponent(urlVars['turkSubmitTo']);
 
     $('#task-form').attr('action', turkSubmitTo + '/mturk/externalSubmit');
 
