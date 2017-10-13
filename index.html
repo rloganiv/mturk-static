@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Question form for product attribute identification">
+    <meta name="author" content="Robert Lockwood Logan IV">
+
+    <title>Product Attribute Identification</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type=text/css href="static/style.css" >
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="static/app.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Product Attribute Identification</h1>
+        </div>
+
+        <div class="page-section" id="instructions">
+            <h2>Instructions:</h2>
+
+            <p>
+                A title, image and text description of a product are provided
+                below. Beneath them is a list of potential attributes for the
+                item. Your task is to select the correct attribute from this
+                list using the provided information.
+
+                If you cannot determine the correct attribute from these pieces
+                of information, check the 'Not Answerable' box instead.
+
+                Lastly, if you are able to determine the attribute please
+                indicate which piece(s) of information you used to determine
+                the attribute by using the checkboxes below.
+            </p>
+
+            <p>
+                Click the following links for examples of how to complete this task:
+            </p>
+            <ul>
+                <li><a href="example1.html">Example 1</a></li>
+                <li><a href="example2.html">Example 2</a></li>
+                <li><a href="example3.html">Example 3</a></li>
+            </ul>
+
+        </div>
+
+        <div class="page-section" id="product-info">
+            <h2>Information:</h2>
+            <b id="product-title"></b>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <img id="image"></img>
+                    <div id="image-nav"></div>
+                </div>
+            </div>
+
+            <b>Description:</b>
+            <p id="product-description"></p>
+
+        </div>
+
+        <div class="page-section">
+
+            <h2>Task:</h2>
+
+            <form id="task-form"
+                  action="https://workersandbox.mturk.com/mturk/externalSubmit"
+                  onkeypress="return event.keyCode != 13;"
+                  onsubmit="return validate();">
+
+                <!-- Value Selection -->
+                <div class="form-section">
+                    <p>
+                        Using the image and description above, select the
+                        correct value from the list below for the given
+                        attribute. If you cannot determine this information
+                        from the image or product description then select 'Not
+                        Answerable' instead.
+                    </p>
+                    <p>
+                        <b>Attribute:</b> <span id='form-attribute'></span>
+                    </p>
+
+                    <div id='form-values'></div>
+                </div>
+
+                <!-- Mode Used -->
+                <div class="form-section">
+                    <p>
+                        Mark which pieces of information can be used to answer the
+                        question above. If you were unable to answer the question
+                        leave these checkboxes blank.
+                    </p>
+                    <input type="checkbox" name="modeUsed" value="image"> image </input>
+                    <input type="checkbox" name="modeUsed" value="title"> title </input>
+                    <input type="checkbox" name="modeUsed" value="description"> description </input>
+                </div>
+
+                <!-- Process -->
+                <div class="form-section" id="form-process"></div>
+
+            </form>
+        </div>
+
+        <div id='bottom-pad'></div>
+
+    </div>
+</body>

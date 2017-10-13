@@ -1,0 +1,33 @@
+#image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    max-width: 100%;
+}
+
+#image-nav {
+    display: block;
+    margin: auto;
+}
+
+label {
+    font-weight: normal;
+}
+
+.form-section {
+    margin-bottom: 10px;
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+input[type=button] {
+    background-color: #ccc;
+}
+
+input[type=button]:disabled {
+    background-color: #999;
+}
+
