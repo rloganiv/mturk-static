@@ -230,6 +230,10 @@ function prepare_for_submission() {
 $(document).ready(function() {
     var urlVars = getUrlVars();
     assignmentId = urlVars['assignmentId'];
+    submitToUrl = urlVars['submitToUrl'];
+
+    $('#task-form').attr('action', submitToUrl);
+
     var questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
     var getJSON =$.getJSON(questionFile);
     getJSON.done(function( data ) {
