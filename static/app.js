@@ -89,7 +89,7 @@ function displayForm() {
     $('#form-values').append(input);
     $('#form-values').append(label);
     $('#form-values').append($('<br>'));
-    
+
     $('input[name="modeUsed"]').prop('checked', false);
 
     if (questionId < questions.length - 1) {
@@ -113,7 +113,7 @@ function displayForm() {
 function prevImage() {
     /* Decreases the image index. */
     imageId = imageId - 1;
-    drawImage();
+    displayImage();
     disableButtons();
 }
 
@@ -121,7 +121,7 @@ function prevImage() {
 function nextImage() {
     /* Increases the image index. */
     imageId = imageId + 1;
-    drawImage();
+    displayImage();
     disableButtons();
 }
 
