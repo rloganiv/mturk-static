@@ -148,31 +148,47 @@ function nextQuestion() {
     /* Event handler when proceeding to next question */
     good_answer = validate()
     if (good_answer) {
-        answers[questionId] = $('#task-form').serializeArray();
+        answers[questionId] = serializeObject();
         questionId += 1;
         imageId = 0;
     }
-    if (questionId == questions.length) {
-        $('#task-form').submit(function() {
-            data = {
-                'assignmentId': assignmentId,
-                'answers': answers,
-                'questions': questions
-            }
-            data = jQuery.param( data );
-            console.log(data);
-            $.post('https://workersandbox.mturk.com/mturk/externalSubmit', data, function(){});
-            return  false;
-
-        });
-        $('#task-form').submit()
+    if (questionId >= questions.length) {
+        prepare_for_submission();
+        $('#task-form').submit();
     } else {
         render();
     }
 }
 
+function serializeObject(){
+    array = $('#task-form').serializeArray();
+
+    output = {
+        usedImage: false,
+        usedTitle: false,
+        usedDescription: false
+    };
+
+    for (var x in array) {
+        if (x.name == 'value'){
+            output.value = x.value;
+        }
+        if ((x.name == 'modeUsed') && (x.value == 'image')){
+            output.usedImage = true;
+        }
+        if ((x.name == 'modeUsed') && (x.value == 'title')){
+            output.usedTitle = true;
+        }
+        if ((x.name == 'modeUsed') && (x.value == 'description')){
+            output.usedDescription = true;
+        }
+    }
+    return output
+}
+
 function validate() {
     /* Validates that the form inputs are sensible. If form is invalid, alert is displayed describing why. */
+    return true;
     var valueSelection = $("input[name='value']:checked").val();
     var isNull = valueSelection == '__NA__';
     var checkboxVals = [];
@@ -193,6 +209,21 @@ function validate() {
         return false;
     }
     return true;
+}
+
+function prepare_for_submission() {
+    $('#task-form').trigger('reset');
+    $('<input>').attr('type', 'hidden').attr('name', 'assignmentId').attr('value', assignmentId).appendTo('#task-form');
+    for (var i=0; i<5; i++) {
+        $('<input>').attr('type', 'hidden').attr('name', 'diffbot_uri_'+i).attr('value', questions[i].diffbotUri).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'attribute_'+i).attr('value', questions[i].attribute).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'correct_value_'+i).attr('value', questions[i].correct_value).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'values_'+i).attr('value', questions[i].values).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'selected_value_'+i).attr('value', answers[i].value).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'used_image_'+i).attr('value', answers[i].usedImage).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'used_title_'+i).attr('value', answers[i].usedTitle).appendTo('#task-form');
+        $('<input>').attr('type', 'hidden').attr('name', 'used_description_'+i).attr('value', answers[i].usedDescription).appendTo('#task-form');
+    }
 }
 
 // Main page logic
