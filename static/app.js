@@ -211,7 +211,6 @@ function validate() {
 }
 
 function prepare_for_submission() {
-    $('#task-form').trigger('reset');
     $('<input>').attr('type', 'hidden').attr('name', 'assignmentId').attr('value', assignmentId).appendTo('#task-form');
     for (var i=0; i<5; i++) {
         $('<input>').attr('type', 'hidden').attr('name', 'diffbot_uri_'+i).attr('value', questions[i].diffbotUri).appendTo('#task-form');
