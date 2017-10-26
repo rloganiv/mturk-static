@@ -171,6 +171,7 @@ function serializeObject(){
     };
 
     for (var x in array) {
+        y = array[x];
         if (x.name == 'value'){
             output.value = x.value;
         }
