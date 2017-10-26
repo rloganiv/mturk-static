@@ -172,16 +172,16 @@ function serializeObject(){
 
     for (var x in array) {
         y = array[x];
-        if (x.name == 'value'){
-            output.value = x.value;
+        if (y.name == 'value'){
+            output.value = y.value;
         }
-        if ((x.name == 'modeUsed') && (x.value == 'image')){
+        if ((y.name == 'modeUsed') && (y.value == 'image')){
             output.usedImage = true;
         }
-        if ((x.name == 'modeUsed') && (x.value == 'title')){
+        if ((y.name == 'modeUsed') && (y.value == 'title')){
             output.usedTitle = true;
         }
-        if ((x.name == 'modeUsed') && (x.value == 'description')){
+        if ((y.name == 'modeUsed') && (y.value == 'description')){
             output.usedDescription = true;
         }
     }
