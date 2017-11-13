@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Question form for product attribute identification">
+    <meta name="author" content="Robert Lockwood Logan IV">
+
+    <title>Product Attribute Identification</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type=text/css href="static/style.css" >
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!--<script src="static/app.js"></script>-->
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Product Attribute Identification - Example 3</h1>
+        </div>
+
+        <div class="page-section" id="instructions">
+            <h2>Instructions:</h2>
+
+            <p>
+                A title, image and text description of a product are provided
+                below. Beneath them is a list of potential attributes for the
+                item. Your task is to select the correct attribute from this
+                list using the provided information.
+
+                If you cannot determine the correct attribute from these pieces
+                of information, check the 'Not Answerable' box instead.
+
+                Lastly, if you are able to determine the attribute please
+                indicate which piece(s) of information you used to determine
+                the attribute by using the checkboxes below.
+            </p>
+
+        </div>
+
+        <div class="page-section" id="product-info">
+            <h2>Information:</h2>
+            <b id="product-title">ThermoPro TP03A Digital Food Cooking Thermometer Instant Read Meat Thermometer for Kitchen BBQ Grill Smoker</b>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <img id="image" src="static/example.jpg"></img>
+                </div>
+            </div>
+
+            <b>Description:</b>
+            <p id="product-description">
+            ThermoPro: Cook Like A Pro Every Time!
+            The ThermoPro TP-03A is an effective solution to achieve the most accurate temperature in a matter of seconds. The digital kitchen thermometer with a simplistic yet practical design, and a push of the button, the foldaway probe will pop open for quick an easy temperature reading, and when you're done taking the temperature measurement you can fold the probe back in to ensure the probe is kept safe and clean. Don't sweat powering the food thermometer off as it's designed to conserve battery power after 10 minutes of no use. Stop overcooking or under-cooking your meat and perfect meat temperatures like a professional, ensuring the perfect temp every time you're grilling or cooking. The meat thermometer with a LCD display, reading temperatures in your preferred unit of measurement between Celsius or Fahrenheit is a breeze.
+            BBQ Thermometer Features:
+            - Unique Fast Reading system achieves an accurate temperature reading within 4 - 7 seconds
+            - Ultra-clear screen LCD display
+            - Foldaway probe is designed for safety and cleanliness
+            - STEP-DOWN probe tip thermometer to get temperature more precisely and quickly
+            - Battery power saving design
+            - Celsius/Fahrenheit selector
+            Cooking Thermometer Specifications:
+            - Temperature Range: -58°F to 572°F (-50°C to 300°C)
+            - Battery: 1 x AAA battery
+            - Temperature Accuracy: ±0.9°F (±0.5°C) from 32 to 212°F (0 to 100°C)
+            - Probe Length: 3.8" food grade stainless steel probe
+            - LCD Display Size: 0.52 H x 1.06 W inches
+            - Dimensions: 6.1 H x 0.98 W x 0.94 D inches
+            - Uses: BBQ, Oven, Smoker, Candy, Meat, Food, Liquid, Milk
+            </p>
+
+        </div>
+
+        <div class="page-section">
+
+            <h2>Task:</h2>
+
+            <form id="task-form"
+                  method="post"
+                  onkeypress="return event.keyCode != 13;"
+                  onsubmit="return validate();">
+
+                <!-- Value Selection -->
+                <div class="form-section">
+                    <p>
+                        Using the image and description above, select the
+                        correct value from the list below for the given
+                        attribute. If you cannot determine this information
+                        from the image or product description then select 'Not
+                        Answerable' instead.
+                    </p>
+                    <p>
+                        <b>Attribute:</b> <span id='form-attribute'>Warranty</span>
+                    </p>
+                    <p style='color:red;'>
+                        The correct selection is 'Not Answerable' since none of the provided information has can be used to determine the product's warranty.
+                    </p>
+
+                    <div id='form-values'>
+                    
+                        <input type='radio' name='value' disabled/>
+                        <label>1 year</label>
+                        <br>
+
+                        <input type='radio' name='value' disabled/>
+                        <label>2 years</label>
+                        <br>
+
+                        <input type='radio' name='value' disabled/>
+                        <label>Lifetime</label>
+                        <br>
+                    
+                        <input type='radio' name='value' disabled/>
+                        <label>30 days</label>
+                        <br>
+
+                        <input type='radio' name='value' checked disabled/>
+                        <label>Not Answerable</label>
+                        <br>
+                    
+                    </div>
+                </div>
+
+                <!-- Mode Used -->
+                <div class="form-section">
+                    <p>
+                        Mark which pieces of information can be used to answer the
+                        question above. If you were unable to answer the question
+                        leave these checkboxes blank.
+                    </p>
+                    <p style="color:red;">
+                        Since the attribute was unable to be determined, none of the checkboxes should be checked.
+                    </p>
+                    <input type="checkbox" name="modeUsed" value="image" disabled> image </input>
+                    <input type="checkbox" name="modeUsed" value="title" disabled> title </input>
+                    <input type="checkbox" name="modeUsed" value="description" disabled> description </input>
+                </div>
+
+                <!-- Process -->
+                <div class="form-section" id="form-process"></div>
+
+            </form>
+        </div>
+
+        <div id='bottom-pad'></div>
+
+    </div>
+</body>
