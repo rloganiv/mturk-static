@@ -215,7 +215,7 @@ function validate() {
 function prepare_for_submission() {
     $('<input>').attr('type', 'hidden').attr('name', 'assignmentId').attr('value', assignmentId).appendTo('#task-form');
     $('<input>').attr('type', 'hidden').attr('name', 'questionFile').attr('value', questionFile).appendTo('#task-form');
-    for (var i=0; i<5; i++) {
+    for (var i=0; i<questions.length; i++) {
         $('<input>').attr('type', 'hidden').attr('name', 'diffbotUri'+i).attr('value', questions[i].diffbotUri).appendTo('#task-form');
         $('<input>').attr('type', 'hidden').attr('name', 'attribute'+i).attr('value', questions[i].attribute).appendTo('#task-form');
         $('<input>').attr('type', 'hidden').attr('name', 'correctValue'+i).attr('value', questions[i].correct_value).appendTo('#task-form');
