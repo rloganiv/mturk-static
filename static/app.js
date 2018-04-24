@@ -43,7 +43,7 @@ function displayTitle() {
 
 function displayImage() {
     /* Dsiplays the active image for the active question. */
-    var image_src = 'https://s3-us-west-2.amazonaws.com/mumie-eval/img/' + questions[questionId].images[imageId];
+    var image_src = 'https://s3-us-west-2.amazonaws.com/mae-mturk/img/' + questions[questionId].images[imageId];
     $("#image").replaceWith($("<img>", {id:"image", src: image_src}));
 }
 
@@ -255,7 +255,7 @@ $(document).ready(function() {
 
     $('#task-form').attr('action', turkSubmitTo + '/mturk/externalSubmit');
 
-    questionFile = 'https://s3-us-west-2.amazonaws.com/mumie-eval/json/' + urlVars['questionFile'];
+    questionFile = 'https://s3-us-west-2.amazonaws.com/mae-mturk/questionnaires/' + urlVars['questionFile'];
     var getJSON =$.getJSON(questionFile);
     getJSON.done(function( data ) {
         questions = data;
