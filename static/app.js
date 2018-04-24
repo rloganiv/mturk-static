@@ -62,7 +62,7 @@ function displayImageNav() {
 
 function displayDescription() {
     /* Displays the product description for the active question. */
-    var description = questions[questionId].description;
+    var description = questions[questionId].text;
     $('#product-description').text(description);
 }
 
@@ -86,12 +86,12 @@ function displayForm() {
     $('#form-attribute').text(attribute);
 
     // Update values
-    var values = questions[questionId].values;
-    shuffleArray(values) //Shuffle to avoid bad actors
+    var options = questions[questionId].options;
+    shuffleArray(options) //Shuffle to avoid bad actors
     $('#form-values').empty();
-    for (var id in values) {
-        var input = $('<input>', {type: 'radio', name: 'value', value: values[id]});
-        var label = $('<label>').text(values[id]);
+    for (var id in options) {
+        var input = $('<input>', {type: 'radio', name: 'value', value: options[id]});
+        var label = $('<label>').text(options[id]);
         $('#form-values').append(input);
         $('#form-values').append(label);
         $('#form-values').append($('<br>'));
