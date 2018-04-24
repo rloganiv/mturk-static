@@ -22,6 +22,107 @@
     <script src="static/app.js"></script>
 </head>
 <body>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="exampleModalLabel">Study Information Sheet</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+                    <p>
+                    <b>Lead Researcher</b></br>
+                    Sameer Singh, Assistant Professor</br>
+                    Dept. of Computer Science</br>
+                    (615) 945 6618</br>
+                    sameer@uci.edu
+                    </p>
+                    <ul>
+                        <li>
+                            We are asking you to take part in a study conducted
+                            by researchers at the University of California,
+                            Irvine. Participating in this study is optional.
+                        </li>
+
+                        <li>
+                            If you choose to be in the study, you will complete
+                            a survey. This survey will ask you to identify
+                            attributes of products given their images and
+                            textual descriptions. This survey will help us
+                            learn more about human performance on this task,
+                            and will be used to create a dataset to evaluate
+                            automated approaches to solving this task.
+                        </li>
+                        <li>
+                            The survey will take about 10 minutes to complete.
+                        </li>
+                        <li>
+                            We will keep your answers confidential and will not
+                            share your personal information with anyone outside
+                            the research team.
+                        </li>
+                        <li>
+                            The data you provide may be collected and used by
+                            Amazon as per its privacy agreement.
+                        </li>
+                        <li>
+                            This survey contains a number of checks to make
+                            sure that participants are finishing the tasks
+                            honestly and completely. As long as you read the
+                            instructions and complete the tasks, your HIT will
+                            be approved. If you fail these checks, your HIT
+                            will be rejected.
+                        </li>
+                        <li>
+                            This research is for residents of the United States
+                            over the age of 18; if you are not a resident of
+                            the United States and/or under the age of 18,
+                            please do not complete this survey.
+                        </li>
+                        <li>
+                            You will receive $1.82 after each survey. You will
+                            receive compensation for each survey that you have
+                            completed.
+                        </li>
+                        <li>
+                            If you have any comments, concerns, or questions
+                            regarding the conduct of this research please
+                            contact the researchers listed at the top of this
+                            form.
+                        </li>
+                        <li>
+                            If you have questions or concerns about your rights
+                            as a research participant, you can contact the UCI
+                            Institutional Review Board by phone, (949)
+                            824-6662, by e-mail at IRB@research.uci.edu or at
+                            141 Innovation, Suite 250, Irvine, CA 92697.
+                        </li>
+                        <li>
+                            What is an IRB? An Institutional Review Board (IRB)
+                            is a committee made up of scientists and
+                            non-scientists. The IRB’s role is to protect the
+                            rights and welfare of human subjects involved in
+                            research. The IRB also assures that the research
+                            complies with applicable regulations, laws, and
+                            institutional policies.
+                        </li>
+
+                    </ul>
+
+                    <p>If you want to participate in this study, click the
+                    Accept button to start the survey.</p>
+
+                </div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Accept</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
     <div class="container">
 
         <div class="page-header">
@@ -46,12 +147,19 @@
             </p>
 
             <p>
+                <b>Warning</b>: In order to ensure the quality of responses
+                obtained from this survey, we may check the correctness of some
+                of the answers you submit. In the case that your answers are
+                incorrect we will reject your HIT.
+            </p>
+
+            <p>
                 Click the following links for examples of how to complete this task:
             </p>
             <ul>
-                <li><a href="example1.html">Example 1</a></li>
-                <li><a href="example2.html">Example 2</a></li>
-                <li><a href="example3.html">Example 3</a></li>
+                <li><a href="example1.html" target="_blank">Example 1</a></li>
+                <li><a href="example2.html" target="_blank">Example 2</a></li>
+                <li><a href="example3.html" target="_blank">Example 3</a></li>
             </ul>
 
         </div>
@@ -118,4 +226,5 @@
         <div id='bottom-pad'></div>
 
     </div>
+
 </body>
