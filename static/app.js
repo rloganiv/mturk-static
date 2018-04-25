@@ -180,7 +180,7 @@ function serializeObject(){
     output = {
         usedImage: false,
         usedTitle: false,
-        usedDescription: false
+        usedText: false
     };
 
     for (var x in array) {
@@ -194,8 +194,8 @@ function serializeObject(){
         if ((y.name == 'modeUsed') && (y.value == 'title')){
             output.usedTitle = true;
         }
-        if ((y.name == 'modeUsed') && (y.value == 'description')){
-            output.usedDescription = true;
+        if ((y.name == 'modeUsed') && (y.value == 'text')){
+            output.usedText = true;
         }
     }
     return output
@@ -233,7 +233,7 @@ function prepare_for_submission() {
             $('<input>').attr('type', 'hidden').attr('name', 'selectedValueKnown').attr('value', answers[i].value).appendTo('#task-form');
             $('<input>').attr('type', 'hidden').attr('name', 'usedImageKnown').attr('value', answers[i].usedImage).appendTo('#task-form');
             $('<input>').attr('type', 'hidden').attr('name', 'usedTitleKnown').attr('value', answers[i].usedTitle).appendTo('#task-form');
-            $('<input>').attr('type', 'hidden').attr('name', 'usedDescriptionKnown').attr('value', answers[i].usedDescription).appendTo('#task-form');
+            $('<input>').attr('type', 'hidden').attr('name', 'usedTextKnown').attr('value', answers[i].usedText).appendTo('#task-form');
         }
         else {
             $('<input>').attr('type', 'hidden').attr('name', 'diffbotUri'+i).attr('value', questions[i].diffbotUri).appendTo('#task-form');
@@ -242,7 +242,7 @@ function prepare_for_submission() {
             $('<input>').attr('type', 'hidden').attr('name', 'selectedValue'+i).attr('value', answers[i].value).appendTo('#task-form');
             $('<input>').attr('type', 'hidden').attr('name', 'usedImage'+i).attr('value', answers[i].usedImage).appendTo('#task-form');
             $('<input>').attr('type', 'hidden').attr('name', 'usedTitle'+i).attr('value', answers[i].usedTitle).appendTo('#task-form');
-            $('<input>').attr('type', 'hidden').attr('name', 'usedDescription'+i).attr('value', answers[i].usedDescription).appendTo('#task-form');
+            $('<input>').attr('type', 'hidden').attr('name', 'usedText'+i).attr('value', answers[i].usedText).appendTo('#task-form');
         }
     }
 }
